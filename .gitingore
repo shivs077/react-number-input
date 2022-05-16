@@ -1,0 +1,12 @@
+.next
+.idea/
+node_modules
+npm-debug.log*
+.DS_Store
+
+# ignore built static files
+dist/
+webpack-assets.json
+.env
+.history
+.vscode/launch.json
