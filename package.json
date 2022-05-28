@@ -7,14 +7,12 @@
     "src/**/*"
   ],
   "main": "dist/index.js",
-  "module": "dist/index.esm.js",
-  "types": "dist/index.d.ts",
   "homepage": "https://shivs077.github.io/react-number-input",
   "scripts": {
     "build": "rm -rf dist && webpack",
     "start": "webpack-dev-server --mode development --open --hot",
     "predeploy": "yarn run build",
-    "deploy": "yarn predeploy && gh-pages -d build",
+    "deploy": "yarn predeploy && gh-pages -d dist",
     "ci": "yarn && yarn build"
   },
   "repository": {
