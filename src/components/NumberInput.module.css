@@ -1,0 +1,10 @@
+.hideButtons::-webkit-outer-spin-button,
+.hideButtons::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* for mozilla */
+.hideButtons[type='number'] {
+  -moz-appearance: textfield;
+}
