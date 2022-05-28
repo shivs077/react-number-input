@@ -9,19 +9,13 @@
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
-  "homepage": "https://github.com/shivs077/react-number-input",
+  "homepage": "https://shivs077.github.io/react-number-input",
   "scripts": {
-    "build": "rm -rf dist && tsc && rollup -c",
-    "start": "parcel src/examples/index.html",
-    "test": "jest --coverage --roots ./src",
-    "test-ci": "cross-env NODE_ICU_DATA=node_modules/full-icu jest --coverage",
-    "typecheck": "tsc && tsc --project tsconfig.test.json",
-    "lint": "eslint src --max-warnings=0",
-    "gh-predeploy": "parcel build src/examples/index.html --dist-dir demo/examples --public-url ./",
-    "gh-deploy": "yarn gh-predeploy && gh-pages -d demo/examples",
-    "ci": "yarn && yarn build",
-    "codecov": "codecov",
-    "semantic-release": "semantic-release"
+    "build": "rm -rf dist && webpack",
+    "start": "webpack-dev-server --mode development --open --hot",
+    "predeploy": "yarn run build",
+    "deploy": "yarn predeploy && gh-pages -d build",
+    "ci": "yarn && yarn build"
   },
   "repository": {
     "type": "git",
@@ -45,61 +39,28 @@
   "author": "shivs077",
   "license": "MIT",
   "devDependencies": {
-    "@commitlint/cli": "^12.1.4",
-    "@commitlint/config-conventional": "^12.1.4",
-    "@rollup/plugin-commonjs": "^19.0.0",
-    "@rollup/plugin-node-resolve": "^13.0.0",
-    "@rollup/plugin-typescript": "^8.2.1",
-    "@semantic-release/changelog": "^5.0.1",
-    "@semantic-release/git": "^9.0.0",
-    "@testing-library/dom": "^7.31.0",
-    "@testing-library/jest-dom": "^5.12.0",
-    "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^13.1.9",
-    "@types/jest": "^26.0.23",
-    "@types/react": "^17.0.6",
-    "@types/react-dom": "^17.0.5",
-    "@typescript-eslint/eslint-plugin": "^4.24.0",
-    "@typescript-eslint/parser": "^4.24.0",
-    "codecov": "^3.8.2",
-    "cross-env": "^7.0.3",
+    "@babel/core": "^7.17.12",
+    "@babel/preset-env": "^7.17.12",
+    "@babel/preset-react": "^7.17.12",
+    "babel-loader": "^8.2.5",
+    "css-loader": "^6.7.1",
     "eslint": "^7.27.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.23.2",
-    "full-icu": "^1.3.4",
+    "file-loader": "^6.2.0",
     "gh-pages": "^3.1.0",
-    "husky": "^6.0.0",
-    "jest": "^26.6.3",
-    "lint-staged": "^11.0.0",
-    "parcel": "^2.0.0-rc.0",
+    "html-webpack-plugin": "^5.5.0",
     "prettier": "^2.3.0",
     "react": "^17.0.2",
     "react-dom": "17.0.2",
-    "rollup": "^2.52.7",
-    "semantic-release": "^17.4.3",
-    "source-map-loader": "^3.0.0",
-    "ts-jest": "^26.5.6",
-    "tslib": "^2.3.0",
-    "typescript": "^4.2.4"
+    "style-loader": "^3.3.1",
+    "webpack": "^5.72.1",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.9.0"
   },
   "peerDependencies": {
     "react": "^16.9.0 || ^17.0.0 || ^18.0.0"
-  },
-  "dependencies": {},
-  "jest": {
-    "verbose": false,
-    "collectCoverage": true,
-    "transform": {
-      "^.+\\.tsx?$": "ts-jest"
-    },
-    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx"
-    ]
   },
   "targets": {
     "main": false,
@@ -107,4 +68,3 @@
     "types": false
   }
 }
-
