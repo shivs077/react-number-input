@@ -92,11 +92,6 @@ const NumberInput = forwardRef(
       onKeyPress: handleKeyPress,
       onPaste: handlePaste,
       onChange: handleChange,
-      hideButtons,
-      allowDecimals,
-      decimalsLimit,
-      allowLeadingZeroes,
-      allowNegativeValue,
       min: !allowDecimals ? Math.max(0, min || 0) : min, // for increment/decrement controls
       ...rest,
     };
