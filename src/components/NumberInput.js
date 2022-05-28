@@ -1,5 +1,8 @@
+// Lib Imports
 import React, { forwardRef } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
+
+// App Imports
 import classes from './NumberInput.module.css';
 
 // support for react refs
@@ -102,18 +105,20 @@ const NumberInput = forwardRef(
   },
 );
 
-// NumberInput.propTypes = {
-//   allowNegativeValue: PropTypes.bool,
-//   allowDecimals: PropTypes.bool,
-//   allowLeadingZeroes: PropTypes.bool,
-//   hideButtons: PropTypes.bool,
-//   onKeyPress: PropTypes.func,
-//   onPaste: PropTypes.func,
-//   onChange: PropTypes.func,
-//   min: PropTypes.number,
-//   type: PropTypes.string,
-//   decimalsLimit: PropTypes.number,
-// };
+NumberInput.propTypes = {
+  allowNegativeValue: PropTypes.bool,
+  allowDecimals: PropTypes.bool,
+  allowLeadingZeroes: PropTypes.bool,
+  hideButtons: PropTypes.bool,
+  onKeyPress: PropTypes.func,
+  onPaste: PropTypes.func,
+  onChange: PropTypes.func,
+  min: PropTypes.number,
+  type: PropTypes.string,
+  decimalsLimit: PropTypes.number,
+  customInput: PropTypes.elementType,
+  className: PropTypes.string,
+};
 
 // setting display name for eslint warning (react/display-name)
 NumberInput.displayName = 'NumberInput';
